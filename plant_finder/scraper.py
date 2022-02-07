@@ -11,3 +11,7 @@ def fetch(url):
         return None
     except requests.Timeout:
         return None
+
+def plants_infos():
+    html_content = fetch(
+        'https://www.jardineiro.net/plantas-de-a-a-z-por-nome-popular')
