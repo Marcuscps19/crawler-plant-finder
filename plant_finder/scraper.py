@@ -10,7 +10,4 @@ def fetch(url):
             return response.text
         return None
     except requests.Timeout:
-        return requests
-
-
-print(fetch('https://www.jardineiro.net/plantas-de-a-a-z-por-nome-popular'))
+        return None
