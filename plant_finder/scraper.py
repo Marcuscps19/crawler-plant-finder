@@ -22,6 +22,25 @@ def scrape_plants(html_content):
     return []
 
 
+def get_info_by_plant(selector):
+    return {
+        "scientific_name": get_scientific_name(selector),
+        "popular_names": get_popular_names(selector),
+        "family": get_by_href_text(selector, "familia"),
+        "categories": get_by_href_text(selector, "classe"),
+        "climates": get_by_href_text(selector, "clima"),
+        "origin": get_by_href_text(selector, "origem"),
+        "height": get_by_href_text(selector, "altura"),
+        "luminosity": get_by_href_text(selector, "luminosidade"),
+        "life_cycle": get_by_href_text(selector, "ciclo"),
+        "description": get_description(selector),
+        "image": get_src_by_id(selector, "post_image"),
+        "photographer": get_photographer_info(selector),
+        "author": get_author(selector),
+        "source":  get_source(selector)
+    }
+
+
 def get_plants_infos(links):
     plants_infos = []
     for link in links:
