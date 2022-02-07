@@ -22,7 +22,18 @@ def scrape_plants(html_content):
     return []
 
 
+def get_plants_infos(links):
+    plants_infos = []
+    for link in links:
+        page_info = fetch(link)
+        selector = Selector(text=page_info)
+        plants_infos.append(get_info_by_plant(selector))
+    return plants_infos
+
+
 def plants_infos():
     html_content = fetch(
         'https://www.jardineiro.net/plantas-de-a-a-z-por-nome-popular')
     plants_links = scrape_plants(html_content)
+    plants_infos = get_plants_infos(plants_links)
+
