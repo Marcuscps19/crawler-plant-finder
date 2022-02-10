@@ -136,6 +136,8 @@ def get_plants_infos(links):
         page_info = fetch(link)
         selector = Selector(text=page_info)
         plants_infos.append(get_info_by_plant(selector))
+        print(plants_infos)
+        print('\n')
     return plants_infos
 
 
